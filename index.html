@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDMUSIC - Lançamento Futurista</title>
+    <style>
+        /* Estilos CSS para o tema futurista */
+        :root {
+            --cor-principal: #FF0055; /* Vermelho Neon */
+            --cor-fundo: #0A0A1A; /* Roxo Escuro / Preto Meia-noite */
+            --cor-texto: #E0E0FF; /* Branco Gelo */
+            --cor-acento: #00FFFF; /* Ciano Neon */
+            --fonte-futurista: 'Orbitron', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: var(--fonte-futurista);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            /* Efeito de grade sutil no fundo */
+            background-image: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+            background-size: 50px 50px;
+        }
+
+        .container {
+            background: rgba(10, 10, 26, 0.85); /* Fundo semi-transparente */
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 0 40px var(--cor-principal), 0 0 20px var(--cor-acento); /* Brilho neon */
+            border: 2px solid var(--cor-principal);
+            max-width: 90%;
+            width: 700px;
+        }
+
+        h1 {
+            color: var(--cor-principal);
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px var(--cor-principal), 0 0 5px var(--cor-fundo);
+            letter-spacing: 5px;
+            animation: neon-blink 1.5s infinite alternate;
+        }
+
+        @keyframes neon-blink {
+            from { text-shadow: 0 0 10px var(--cor-principal), 0 0 20px var(--cor-principal); }
+            to { text-shadow: 0 0 5px var(--cor-principal), 0 0 10px var(--cor-principal), 0 0 30px rgba(255, 0, 85, 0.8); }
+        }
+
+        h2 {
+            color: var(--cor-acento);
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 8px var(--cor-acento);
+            letter-spacing: 2px;
+        }
+
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .countdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 255, 255, 0.1); /* Fundo ciano leve */
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid var(--cor-acento);
+            box-shadow: 0 0 15px var(--cor-acento);
+            transition: transform 0.3s;
+        }
+
+        .countdown-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px var(--cor-acento), 0 0 10px var(--cor-principal);
+        }
+
+        .value {
+            font-size: 4em;
+            font-weight: 700;
+            color: var(--cor-principal);
+            text-shadow: 0 0 10px var(--cor-principal);
+            line-height: 1;
+        }
+
+        .label {
+            font-size: 1em;
+            color: var(--cor-acento);
+            text-transform: uppercase;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: var(--cor-texto);
+            margin-top: 20px;
+        }
+
+        /* Estilo para a animação de áudio (simulada) */
+        .audio-wave {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            height: 30px;
+            margin-top: 30px;
+            gap: 5px;
+        }
+
+        .bar {
+            width: 4px;
+            background-color: var(--cor-principal);
+            animation: audio-anim 1s infinite alternate;
+            border-radius: 2px;
+        }
+
+        .bar:nth-child(1) { height: 10px; animation-delay: 0s; background-color: var(--cor-acento); }
+        .bar:nth-child(2) { height: 20px; animation-delay: 0.1s; }
+        .bar:nth-child(3) { height: 15px; animation-delay: 0.2s; background-color: var(--cor-acento); }
+        .bar:nth-child(4) { height: 25px; animation-delay: 0.3s; }
+        .bar:nth-child(5) { height: 18px; animation-delay: 0.4s; background-color: var(--cor-acento); }
+        .bar:nth-child(6) { height: 12px; animation-delay: 0.5s; }
+
+        @keyframes audio-anim {
+            0% { transform: scaleY(0.5); opacity: 0.7; }
+            100% { transform: scaleY(1.5); opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>REDMUSIC</h1>
+        <h2>O Futuro da Música Começa Agora</h2>
+
+        <div class="audio-wave">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <p class="message">Iniciando Sequência de Lançamento em:</p>
+
+        <div id="countdown">
+            <div class="countdown-item">
+                <span id="dias" class="value">00</span>
+                <span class="label">Dias</span>
+            </div>
+            <div class="countdown-item">
+                <span id="horas" class="value">00</span>
+                <span class="label">Horas</span>
+            </div>
+            <div class="countdown-item">
+                <span id="minutos" class="value">00</span>
+                <span class="label">Minutos</span>
+            </div>
+            <div class="countdown-item">
+                <span id="segundos" class="value">00</span>
+                <span class="label">Segundos</span>
+            </div>
+        </div>
+
+        <p class="message">Prepare-se para a Revolução Sonora.</p>
+    </div>
+
+    <script>
+        // Data de lançamento: 3 meses a partir de agora
+        const dataAtual = new Date();
+        const dataLancamento = new Date(dataAtual);
+        dataLancamento.setMonth(dataLancamento.getMonth() + 3);
+
+        const countdownElement = document.getElementById('countdown');
+
+        function formatarTempo(tempo) {
+            return tempo < 10 ? `0${tempo}` : tempo;
+        }
+
+        function atualizarContagem() {
+            const agora = new Date().getTime();
+            const diferenca = dataLancamento.getTime() - agora;
+
+            // Se a contagem regressiva terminou
+            if (diferenca < 0) {
+                clearInterval(intervalo);
+                countdownElement.innerHTML = '<span class="value" style="font-size: 2.5em;">PLATAFORMA LANÇADA!</span>';
+                document.querySelector('.message').textContent = 'Bem-vindo ao REDMUSIC.';
+                return;
+            }
+
+            // Cálculos de tempo
+            const segundos = 1000;
+            const minutos = segundos * 60;
+            const horas = minutos * 60;
+            const dias = horas * 24;
+
+            const diasRestantes = Math.floor(diferenca / dias);
+            const horasRestantes = Math.floor((diferenca % dias) / horas);
+            const minutosRestantes = Math.floor((diferenca % horas) / minutos);
+            const segundosRestantes = Math.floor((diferenca % minutos) / segundos);
+
+            // Atualiza o DOM
+            document.getElementById('dias').textContent = formatarTempo(diasRestantes);
+            document.getElementById('horas').textContent = formatarTempo(horasRestantes);
+            document.getElementById('minutos').textContent = formatarTempo(minutosRestantes);
+            document.getElementById('segundos').textContent = formatarTempo(segundosRestantes);
+        }
+
+        // Chamada inicial e a cada segundo
+        atualizarContagem();
+        const intervalo = setInterval(atualizarContagem, 1000);
+    </script>
+
+</body>
+</html>
