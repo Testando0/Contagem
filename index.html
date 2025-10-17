@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REDMUSIC - Download</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>REDMUSIC - Download Oficial</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
+        /* --- Variáveis de Cor (para fácil customização) --- */
+        :root {
+            --cor-vermelha: #E63946;
+            --cor-vermelha-escura: #c02f3a;
+            --fundo-escuro: #121212;
+            --fundo-card: rgba(28, 28, 28, 0.6); /* Fundo do "vidro" */
+            --texto-principal: #FFFFFF;
+            --texto-secundario: #b3b3b3;
+            --sombra-neon: rgba(230, 57, 70, 0.5);
+        }
+
         /* --- Reset Básico --- */
         * {
             margin: 0;
@@ -17,104 +29,211 @@
         /* --- Estilos do Corpo (Body) --- */
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #121212; /* Cor de fundo escura (estilo Spotify) */
-            color: #ffffff;
+            background-color: var(--fundo-escuro);
+            color: var(--texto-principal);
+            /* Fundo com gradiente radial sutil */
+            background-image: radial-gradient(circle at center, #2a2a2a, var(--fundo-escuro) 70%);
+            
+            /* Layout Flex para centralizar tudo */
+            display: flex;
+            flex-direction: column; /* Empilha o 'main' e o 'footer' */
+            justify-content: center; /* Centraliza verticalmente */
+            align-items: center; /* Centraliza horizontalmente */
+            min-height: 100vh;
+            padding: 20px; /* Espaçamento para não grudar nas bordas do celular */
+            overflow-x: hidden; /* Evita rolagem horizontal */
+        }
+
+        /* --- Card Principal (Estilo Vidro) --- */
+        .music-card {
+            background: var(--fundo-card);
+            border-radius: 25px;
+            padding: 40px 50px;
+            text-align: center;
+            
+            /* Efeito Glassmorphism (Vidro Fosco) */
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Para Safari */
+            
+            /* Bordas e Sombras */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            
+            /* Responsividade */
+            width: 90vw; /* Ocupa 90% da largura da tela (bom para celular) */
+            max-width: 450px; /* Limite máximo para desktops */
+
+            /* Animação de entrada */
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* --- Ícone de Música (SVG) --- */
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background: var(--cor-vermelha);
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Ocupa a altura total da tela */
-            text-align: center;
-            /* Fundo com um gradiente sutil para dar profundidade */
-            background-image: radial-gradient(circle, #282828, #121212);
-            overflow: hidden; /* Esconde barras de rolagem desnecessárias */
+            margin: 0 auto 25px auto;
+            box-shadow: 0 0 20px var(--sombra-neon);
         }
 
-        /* --- Contêiner Principal --- */
-        .container {
-            padding: 40px 50px;
-            background: rgba(0, 0, 0, 0.3); /* Fundo levemente transparente */
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            /* Efeito de "vidro fosco" (opcional, mas bonito) */
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .icon-container svg {
+            width: 40px;
+            height: 40px;
+            fill: var(--texto-principal);
         }
 
         /* --- Título (REDMUSIC) --- */
         h1 {
-            font-size: 4.5rem; /* Tamanho grande */
+            font-size: 4rem; /* Tamanho grande */
             font-weight: 700;
-            color: #E63946; /* Vermelho vibrante */
+            color: var(--cor-vermelha);
             margin-bottom: 10px;
+            line-height: 1.1;
             /* Efeito de brilho (Neon) */
-            text-shadow: 0 0 10px #E63946, 
-                         0 0 20px #E63946, 
-                         0 0 30px rgba(230, 57, 70, 0.7);
+            text-shadow: 0 0 10px var(--sombra-neon), 
+                         0 0 20px var(--sombra-neon);
         }
 
         /* --- Subtítulo/Descrição --- */
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
-            color: #ccc; /* Cinza claro para não competir com o título */
-            margin-bottom: 40px;
+            color: var(--texto-secundario);
+            margin-bottom: 35px;
         }
 
         /* --- Botão de Download --- */
         .download-button {
-            display: inline-block;
-            background-color: #E63946; /* Cor vermelha principal */
-            color: #ffffff;
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none; /* Remove sublinhado do link */
-            border-radius: 50px; /* Botão em formato "pílula" */
-            transition: all 0.3s ease; /* Transição suave para hover */
+            display: inline-flex; /* Permite alinhar o ícone e o texto */
+            align-items: center;
+            justify-content: center;
+            gap: 12px; /* Espaço entre o ícone e o texto */
             
-            /* Sombra sutil para o botão */
+            background-color: var(--cor-vermelha);
+            color: var(--texto-principal);
+            padding: 16px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px; /* Formato "pílula" */
+            border: none;
+            cursor: pointer;
+            
+            transition: all 0.3s ease;
             box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
             
             /* Animação de pulsação */
             animation: pulse 2s infinite;
         }
 
-        /* --- Efeito Hover (passar o mouse) no Botão --- */
-        .download-button:hover {
-            background-color: #ffffff; /* Fundo branco */
-            color: #E63946; /* Texto vermelho */
-            transform: scale(1.05); /* Aumenta levemente o tamanho */
-            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
-            animation-play-state: paused; /* Para a animação de pulso ao passar o mouse */
+        .download-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor; /* O ícone terá a mesma cor do texto */
         }
 
-        /* --- Animação de Pulsação (Keyframes) --- */
+        /* --- Efeito Hover (passar o mouse) no Botão --- */
+        .download-button:hover {
+            background-color: var(--texto-principal);
+            color: var(--cor-vermelha);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 8px 30px var(--sombra-neon);
+            animation-play-state: paused; /* Para a animação ao passar o mouse */
+        }
+
+        /* --- Rodapé --- */
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: var(--texto-secundario);
+            opacity: 0.7;
+        }
+
+        /* --- Animações --- */
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+            0% { transform: scale(1); box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ------------------------------------------
+         MEDIA QUERY PARA CELULARES (RESPONSIVO)
+        ------------------------------------------
+        */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px; /* Menos padding no body */
             }
-            50% {
-                transform: scale(1.03);
-                box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
+
+            .music-card {
+                padding: 30px 25px; /* Menos padding interno no card */
+                width: 95vw; /* Ocupa quase 100% da tela */
             }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+
+            .icon-container {
+                width: 70px;
+                height: 70px;
+                margin-bottom: 20px;
+            }
+
+            .icon-container svg {
+                width: 35px;
+                height: 35px;
+            }
+
+            h1 {
+                font-size: 3.2rem; /* Fonte menor no celular */
+            }
+
+            p {
+                font-size: 1rem; /* Fonte menor no celular */
+                margin-bottom: 30px;
+            }
+
+            .download-button {
+                padding: 15px 30px;
+                font-size: 1rem;
             }
         }
+
     </style>
 </head>
 <body>
 
-    <main class="container">
+    <main class="music-card">
+        
+        <div class="icon-container">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+        </div>
+
         <h1>REDMUSIC</h1>
-        <p>Sua nova experiência musical está a um clique de distância.</p>
+        <p>A experiência de música definitiva. Baixe o app oficial.</p>
         
         <a href="SEU_LINK_DO_MEDIAFIRE_AQUI" class="download-button" target="_blank" rel="noopener noreferrer">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+                <path d="M0 0h24v24H0V0z" fill="none"/>
+                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+            </svg>
             Baixar Agora
         </a>
+
     </main>
+
+    <footer class="footer">
+        &copy; 2024 REDMUSIC. Todos os direitos reservados.
+    </footer>
     
 </body>
 </html>
