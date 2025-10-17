@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDMUSIC - Download</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Reset Básico --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* --- Estilos do Corpo (Body) --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212; /* Cor de fundo escura (estilo Spotify) */
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa a altura total da tela */
+            text-align: center;
+            /* Fundo com um gradiente sutil para dar profundidade */
+            background-image: radial-gradient(circle, #282828, #121212);
+            overflow: hidden; /* Esconde barras de rolagem desnecessárias */
+        }
+
+        /* --- Contêiner Principal --- */
+        .container {
+            padding: 40px 50px;
+            background: rgba(0, 0, 0, 0.3); /* Fundo levemente transparente */
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            /* Efeito de "vidro fosco" (opcional, mas bonito) */
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Título (REDMUSIC) --- */
+        h1 {
+            font-size: 4.5rem; /* Tamanho grande */
+            font-weight: 700;
+            color: #E63946; /* Vermelho vibrante */
+            margin-bottom: 10px;
+            /* Efeito de brilho (Neon) */
+            text-shadow: 0 0 10px #E63946, 
+                         0 0 20px #E63946, 
+                         0 0 30px rgba(230, 57, 70, 0.7);
+        }
+
+        /* --- Subtítulo/Descrição --- */
+        p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #ccc; /* Cinza claro para não competir com o título */
+            margin-bottom: 40px;
+        }
+
+        /* --- Botão de Download --- */
+        .download-button {
+            display: inline-block;
+            background-color: #E63946; /* Cor vermelha principal */
+            color: #ffffff;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none; /* Remove sublinhado do link */
+            border-radius: 50px; /* Botão em formato "pílula" */
+            transition: all 0.3s ease; /* Transição suave para hover */
+            
+            /* Sombra sutil para o botão */
+            box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+            
+            /* Animação de pulsação */
+            animation: pulse 2s infinite;
+        }
+
+        /* --- Efeito Hover (passar o mouse) no Botão --- */
+        .download-button:hover {
+            background-color: #ffffff; /* Fundo branco */
+            color: #E63946; /* Texto vermelho */
+            transform: scale(1.05); /* Aumenta levemente o tamanho */
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
+            animation-play-state: paused; /* Para a animação de pulso ao passar o mouse */
+        }
+
+        /* --- Animação de Pulsação (Keyframes) --- */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 25px rgba(230, 57, 70, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(230, 57, 70, 0.4);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <h1>REDMUSIC</h1>
+        <p>Sua nova experiência musical está a um clique de distância.</p>
+        
+        <a href="SEU_LINK_DO_MEDIAFIRE_AQUI" class="download-button" target="_blank" rel="noopener noreferrer">
+            Baixar Agora
+        </a>
+    </main>
+    
+</body>
+</html>
