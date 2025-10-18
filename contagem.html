@@ -206,13 +206,12 @@
     </div>
 
     <script>
-        // Data de lançamento: 3 meses a partir de agora
+        // Data de lançamento: 2 dias a partir de agora
         const dataAtual = new Date();
         const dataLancamento = new Date(dataAtual);
         
-        // Configura a data de lançamento para 3 meses à frente
-        dataLancamento.setMonth(dataLancamento.getMonth() + 3);
-        dataLancamento.setDate(dataLancamento.getDate() + 1); // Adiciona um dia para garantir 3 meses cheios
+        // Configura a data de lançamento para 2 dias à frente
+        dataLancamento.setDate(dataLancamento.getDate() + 2);
 
         const countdownElement = document.getElementById('countdown');
 
